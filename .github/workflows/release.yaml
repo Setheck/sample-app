@@ -47,7 +47,6 @@ jobs:
             org.opencontainers.image.title=maka job creator
             org.opencontainers.image.description=k8 deeplearning job creation agent
           tags: |
-            latest
             type=ref,event=branch
             type=ref,event=pr
             type=semver,pattern={{version}}
