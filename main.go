@@ -20,7 +20,7 @@ func main() {
 		select {
 		case <-ctx.Done():
 			return
-		case <-time.After(time.Second * 10):
+		case <-time.After(time.Second * 15):
 			resp, err := http.Get(u)
 			if err != nil {
 				log.Println("Error:", err)
