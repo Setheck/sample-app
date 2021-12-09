@@ -47,8 +47,8 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}
           labels: |
-            org.opencontainers.image.title=maka job creator
-            org.opencontainers.image.description=k8 deeplearning job creation agent
+            org.opencontainers.image.title=sample application
+            org.opencontainers.image.description=image for testing workflow
           tags: |
             type=ref,event=branch
             type=ref,event=pr
