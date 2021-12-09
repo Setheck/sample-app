@@ -10,7 +10,7 @@ on:
       - master
 
 env:
-  REGISTRY: docker.io/setheck
+  REGISTRY: docker.io
   IMAGE_NAME: sample-app
 
 jobs:
@@ -41,7 +41,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USER }}/${{ env.IMAGE_NAME }}
           labels: |
             org.opencontainers.image.title=maka job creator
             org.opencontainers.image.description=k8 deeplearning job creation agent
