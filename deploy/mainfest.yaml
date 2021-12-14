@@ -16,3 +16,4 @@ spec:
       containers:
         - name: sample
           image: setheck/sample-app:latest
+          imagePullPolicy: Always
