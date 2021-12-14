@@ -24,6 +24,7 @@ jobs:
           fetch-depth: '0'
 
       - name: Bump version and push tag
+        id: tag
         uses: anothrNick/github-tag-action@1.36.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,9 +54,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
+            type=semver,pattern={{version}},value=${{ steps.tag.outputs.new_tag }}
             type=sha
 
       - name: Build and push Docker image
