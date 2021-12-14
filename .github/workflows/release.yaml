@@ -5,13 +5,6 @@ on:
     branches:
       - master
       - main
-      # Sequence of patterns matched against refs/tags
-    tags:
-      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
-  pull_request:
-    branches:
-      - master
-      - main
 
 env:
   REGISTRY: docker.io
@@ -27,6 +20,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
