@@ -5,6 +5,10 @@ on:
     branches:
       - master
       - main
+    tags:
+      - 'v*.*.*'
+    paths:
+      - 'deploy/**'
 
 env:
   REGISTRY: docker.io
